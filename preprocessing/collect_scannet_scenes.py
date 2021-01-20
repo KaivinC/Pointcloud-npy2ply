@@ -90,6 +90,7 @@ def collect_one_scene_data_label(scene_name, out_filename):
 if __name__=='__main__':
     os.makedirs(CONF.PREP_SCANS, exist_ok=True)
     #all_data_label_file = open("./prepare_data/meta/all_data_label.txt","w")
+    print("The data is store at: ",CONF.PREP)
     print("Type is: ",CONF.DATA_TYPE)
     print("Block size is: ",CONF.BLOCK_SIZE)
     print("Stride size is: ",CONF.STRIDE_SIZE)

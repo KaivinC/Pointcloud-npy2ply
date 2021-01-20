@@ -4,12 +4,13 @@ from easydict import EasyDict
 CONF = EasyDict()
 
 # BASE PATH
-CONF.ROOT = "/home/scanNet/test" # TODO change this
-CONF.DATA_TYPE = "test"   #processing data is train or test # TODO change this
-CONF.SCANNET_ROOT = "/home/scanNet"# TODO change this
+# the dir of my preprocessing: /home/scanNet/test/scannet2block/Pointcloud-npy2ply/preprocessing
+CONF.ROOT = "/home/scanNet/test/scannet2block/Pointcloud-npy2ply" # TODO change this 
+CONF.DATA_TYPE = "test"   #processing data is train data or test data # TODO change this
+CONF.SCANNET_ROOT = "/home/scanNet" # Where scannet is located # TODO change this
 
-CONF.BLOCK_SIZE = 1.0
-CONF.STRIDE_SIZE = 0.5
+CONF.BLOCK_SIZE = 1.0 # TODO if you want to change
+CONF.STRIDE_SIZE = 0.5 # TODO if you want to change
 
 if CONF.DATA_TYPE=="train":
     CONF.STRIDE_SIZE = 0.5
@@ -29,6 +30,7 @@ else:
 CONF.SCENE_NAMES = sorted(os.listdir(CONF.SCANNET_DIR))
 
 CONF.PREP = os.path.join(CONF.ROOT, "all_"+CONF.DATA_TYPE+"_data")
+
 CONF.SCANNET_H5_DIR = os.path.join(CONF.PREP, "ScanNet_h5")
 CONF.PREP_SCANS = os.path.join(CONF.PREP, "scannet_scenes")
 CONF.SCAN_LABELS = os.path.join(CONF.PREP, "label_point_clouds")

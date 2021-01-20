@@ -26,8 +26,6 @@ if(CONF.DATA_TYPE == "train"):
 else:
     filelist = os.path.join(BASE_DIR, 'meta/scannetv2_test.txt')
     
-# print(len(data_label_files))
-# assert 0
 output_dir = CONF.SCANNET_H5_DIR
 
 os.makedirs(CONF.PREP, exist_ok=True)
@@ -93,7 +91,8 @@ def Get_h5():
     sample_cnt = 0
     for i, data_label_filename in enumerate(tqdm(data_label_files)):
         #print(data_label_filename)
-        data, label = indoor3d_util.room2blocks_wrapper_normalized(data_label_filename, NUM_POINT, block_size=CONF.BLOCK_SIZE, stride=CONF.STRIDE_SIZE,
+
+        data, label = indoor3d_util.room2blocks_wrapper_normalized(data_label_filename+".npy", NUM_POINT, block_size=CONF.BLOCK_SIZE, stride=CONF.STRIDE_SIZE,
                                                      random_sample=False, sample_num=None)
         #print('{0}, {1}'.format(data.shape, label.shape))
         for _ in range(data.shape[0]):
